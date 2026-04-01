@@ -33,8 +33,8 @@ const projectData = {
         A: generatePlaceholders('street/a', 18),
         B: [], C: [], D: [], E: [], F: [], G: []
     },
-    activity: {
-        A: generatePlaceholders('activity/a', 10),
+    moment: {
+        A: generatePlaceholders('moment/a', 10),
         B: [], C: [], D: [], E: [], F: [], G: []
     }
 };

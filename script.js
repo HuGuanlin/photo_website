@@ -3,46 +3,49 @@
    ========================================================================== */
 const i18nData = {
     en: {
-        meText: "Me",
+        AboutText: "About",
         nameLabel: "Name:",
-        nameValue: "John Doe",
+        nameValue: "Hu",
         natLabel: "Nationality:",
-        natValue: "Global Citizen",
+        natValue: "Chinese",
         locLabel: "Location:",
-        locValue: "Berlin, Germany",
+        locValue: "Nürnberg, Germany",
         emailLabel: "Email:",
+        rednoteLabel: "Rednote:",
         catPortrait: "Portrait",
         catLandscape: "Landscape",
         catStreet: "Street",
-        catActivity: "Activity"
+        catMoment: "Moment"
     },
     de: {
-        meText: "Ich",
+        AboutText: "Über",
         nameLabel: "Name:",
-        nameValue: "John Doe",
+        nameValue: "Hu",
         natLabel: "Nationalität:",
-        natValue: "Weltbürger",
+        natValue: "Chinesisch",
         locLabel: "Ort:",
-        locValue: "Berlin, Deutschland",
+        locValue: "Nürnberg, Deutschland",
         emailLabel: "E-Mail:",
+        rednoteLabel: "Rednote:",
         catPortrait: "Porträt",
         catLandscape: "Landschaft",
         catStreet: "Straße",
-        catActivity: "Aktivität"
+        catMoment: "Moment"
     },
     zh: {
-        meText: "我",
+        AboutText: "简介",
         nameLabel: "姓名:",
-        nameValue: "约翰·多伊",
+        nameValue: "",
         natLabel: "国籍:",
-        natValue: "世界公民",
+        natValue: "中国",
         locLabel: "地点:",
-        locValue: "柏林, 德国",
+        locValue: "纽伦堡, 德国",
         emailLabel: "邮箱:",
+        rednoteLabel: "小红书:",
         catPortrait: "人像",
         catLandscape: "风景",
         catStreet: "街拍",
-        catActivity: "活动"
+        catMoment: "瞬间"
     }
 };
 
@@ -76,23 +79,23 @@ function applyTranslations(lang) {
 }
 
 /* ==========================================================================
-   "Me" Sidebar Logic
+   "About" Sidebar Logic
    ========================================================================== */
-const meBtn = document.getElementById('me-btn');
+const AboutBtn = document.getElementById('About-btn');
 const closeSidebarBtn = document.getElementById('close-sidebar');
-const meSidebar = document.getElementById('me-sidebar');
-const meOverlay = document.getElementById('me-overlay');
+const AboutSidebar = document.getElementById('About-sidebar');
+const AboutOverlay = document.getElementById('About-overlay');
 
 function openSidebar() {
-    meSidebar.classList.add('active');
-    meOverlay.classList.add('active');
+    AboutSidebar.classList.add('active');
+    AboutOverlay.classList.add('active');
 }
 
 function closeSidebar() {
-    meSidebar.classList.remove('active');
-    meOverlay.classList.remove('active');
+    AboutSidebar.classList.remove('active');
+    AboutOverlay.classList.remove('active');
 }
 
-meBtn.addEventListener('click', openSidebar);
+AboutBtn.addEventListener('click', openSidebar);
 closeSidebarBtn.addEventListener('click', closeSidebar);
-meOverlay.addEventListener('click', closeSidebar);
+AboutOverlay.addEventListener('click', closeSidebar);

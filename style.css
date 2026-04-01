@@ -20,10 +20,10 @@ a {
 }
 
 /* ==========================================================================
-   Top Row (15vh)
+   Top Row (8vh)
    ========================================================================== */
 .top-row {
-    height: 15vh;
+    height: 8vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,7 +31,7 @@ a {
     border-bottom: 1px solid #f0f0f0;
 }
 
-#me-btn {
+#About-btn {
     background: none;
     border: none;
     font-size: 1.2rem;
@@ -40,7 +40,7 @@ a {
     transition: opacity 0.3s;
 }
 
-#me-btn:hover {
+#About-btn:hover {
     opacity: 0.5;
 }
 
@@ -72,9 +72,9 @@ a {
 }
 
 /* ==========================================================================
-   Me Sidebar & Overlay
+   About Sidebar & Overlay
    ========================================================================== */
-#me-overlay {
+#About-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -88,12 +88,12 @@ a {
     transition: all 0.4s ease;
 }
 
-#me-overlay.active {
+#About-overlay.active {
     opacity: 1;
     visibility: visible;
 }
 
-#me-sidebar {
+#About-sidebar {
     position: fixed;
     top: 0;
     left: 0;
@@ -110,7 +110,7 @@ a {
     overflow-y: auto;
 }
 
-#me-sidebar.active {
+#About-sidebar.active {
     transform: translateX(0);
 }
 
@@ -157,10 +157,10 @@ a {
 }
 
 /* ==========================================================================
-   Bottom Row (85vh) & Categories
+   Bottom Row (92vh) & Categories
    ========================================================================== */
 .bottom-row {
-    height: 85vh;
+    height: 92vh;
     display: flex;
     width: 100vw;
 }
@@ -223,7 +223,7 @@ a {
     .category-col {
         flex: 0 0 100%;
     }
-    #me-sidebar {
+    #About-sidebar {
         width: 80vw;
     }
 }

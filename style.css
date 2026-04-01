@@ -9,8 +9,8 @@
 }
 
 body {
-    background-color: #ffffff;
-    color: #111111;
+    background-color: #F97316;
+    color: #F97316;
     overflow-x: hidden;
 }
 
@@ -20,36 +20,83 @@ a {
 }
 
 /* ==========================================================================
-   Top Row (8vh)
+   main-layout
    ========================================================================== */
-.top-row {
-    height: 8vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 5vw;
-    border-bottom: 1px solid #f0f0f0;
+.main-layout {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
+/* ==========================================================================
+   Top Row 
+   ========================================================================== */
+.top-row {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+
+    width: 22%;
+    height: 8vh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    overflow: hidden;
+
+    z-index: 10; /* 压在图片上面 */
+    /* background: linear-gradient(to right, rgba(0,0,0,0.2), rgba(255, 255, 255, 0.6)); 渐变黑 */
+    background:transparent;
+    backdrop-filter: blur(10px); /* 可选，磨砂效果 */
+}
+.About-section {
+    width:100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 #About-btn {
-    background: none;
+    width: 100%;
+    height: 100%;
     border: none;
+    border-radius: 0;
+    background: #F97316;
+    border:none;
     font-size: 1.2rem;
     cursor: pointer;
     font-weight: 500;
     transition: opacity 0.3s;
+    color:#000000;
+
 }
 
 #About-btn:hover {
-    opacity: 0.5;
+    background-color: #853D0C;
+    color:#ffffff;
+
 }
 
 /* Segmented Control for Language Switcher */
+.lang-section {
+    width:100%;
+    height: 100%;
+    display: flex;
+    background: #F97316;
+    padding: 0;
+    margin: 0;
+    justify-content:flex-start;
+}
 .lang-switcher {
     display: flex;
-    background-color: #f8f8f8;
-    border-radius: 8px;
-    padding: 4px;
+    margin: 0;
+    border-radius: 0px;
+    height: 100%;
+    width: 100%;
+    border: none;
 }
 
 .lang-switcher input[type="radio"] {
@@ -57,17 +104,21 @@ a {
 }
 
 .lang-switcher label {
+    display: flex;
+    height:100%;
+    width:100%;
     padding: 6px 16px;
     cursor: pointer;
     font-size: 0.9rem;
-    border-radius: 6px;
     transition: all 0.3s ease;
-    color: #888;
+    color: #000000;
+    align-items: center;
+    justify-content: center;
 }
 
 .lang-switcher input[type="radio"]:checked + label {
-    background-color: #ffffff;
-    color: #111111;
+    background-color: #00000077;
+    color: #ffffff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
@@ -157,12 +208,13 @@ a {
 }
 
 /* ==========================================================================
-   Bottom Row (92vh) & Categories
+   Bottom Row (95vh) & Categories
    ========================================================================== */
 .bottom-row {
-    height: 92vh;
+    position: relative;
+    width: 100%;
+    height: 100%;
     display: flex;
-    width: 100vw;
 }
 
 .category-col {
@@ -170,7 +222,7 @@ a {
     position: relative;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid #ffffff;
+    border-right:none;
     background-color: #fafafa;
     overflow: hidden;
     transition: background-color 0.3s;
@@ -181,22 +233,26 @@ a {
 }
 
 .category-col h2 {
-    height: 10%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    font-weight: 400;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    z-index: 2;
+    color:#F97316;
+    font-size: 1.5rem;
+    font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
-    z-index: 2;
-    background: #ffffff;
+    text-align: center;
+    pointer-events: none;
 }
 
 .category-col img {
     width: 100%;
-    height: 90%;
+    height: 100%;
     object-fit: cover;
+    display: block;
     transition: transform 0.6s ease;
 }
 

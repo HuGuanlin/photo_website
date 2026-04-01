@@ -35,7 +35,7 @@ const i18nData = {
     zh: {
         AboutText: "简介",
         nameLabel: "姓名:",
-        nameValue: "",
+        nameValue: "Hu",
         natLabel: "国籍:",
         natValue: "中国",
         locLabel: "地点:",

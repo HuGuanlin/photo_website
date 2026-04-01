@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="top-row">
+        <div class="me-section">
+            <button id="me-btn" data-i18n="meText">Me</button>
+        </div>
+
+        <div class="lang-switcher">
+            <input type="radio" id="lang-en" name="language" value="en" checked>
+            <label for="lang-en">EN</label>
+
+            <input type="radio" id="lang-de" name="language" value="de">
+            <label for="lang-de">DE</label>
+
+            <input type="radio" id="lang-zh" name="language" value="zh">
+            <label for="lang-zh">ZH</label>
+        </div>
+    </header>
+
+    <div id="me-overlay" class="hidden"></div>
+    <aside id="me-sidebar" class="hidden">
+        <button id="close-sidebar">&times;</button>
+        <div class="sidebar-content">
+            <div class="profile-img-col">
+                <img src="images/profile.jpg" alt="Profile Picture" id="profile-img">
+            </div>
+            <div class="personal-info-col">
+                <ul>
+                    <li><span class="label" data-i18n="nameLabel">Name:</span> <span class="value" data-i18n="nameValue">John Doe</span></li>
+                    <li><span class="label" data-i18n="natLabel">Nationality:</span> <span class="value" data-i18n="natValue">Global Citizen</span></li>
+                    <li><span class="label" data-i18n="locLabel">Location:</span> <span class="value" data-i18n="locValue">Berlin, Germany</span></li>
+                    <li><span class="label" data-i18n="emailLabel">Email:</span> <span class="value">hello@example.com</span></li>
+                    <li><span class="label">Instagram:</span> <span class="value">@johndoe</span></li>
+                    <li><span class="label">Rednote:</span> <span class="value">johndoe_photo</span></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+
+    <main class="bottom-row">
+        <a href="project.html?category=portrait" class="category-col">
+            <h2 data-i18n="catPortrait">Portrait</h2>
+            <img src="images/home/portrait.jpg" alt="Portrait Photography">
+        </a>
+
+        <a href="project.html?category=landscape" class="category-col">
+            <h2 data-i18n="catLandscape">Landscape</h2>
+            <img src="images/home/landscape.jpg" alt="Landscape Photography">
+        </a>
+
+        <a href="project.html?category=street" class="category-col">
+            <h2 data-i18n="catStreet">Street</h2>
+            <img src="images/home/street.jpg" alt="Street Photography">
+        </a>
+
+        <a href="project.html?category=activity" class="category-col">
+            <h2 data-i18n="catActivity">Activity</h2>
+            <img src="images/home/activity.jpg" alt="Activity Photography">
+        </a>
+    </main>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

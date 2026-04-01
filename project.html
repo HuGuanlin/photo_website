@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Gallery</title>
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+    <div class="project-layout">
+        <nav class="project-sidebar">
+            <a href="index.html" class="back-btn" data-i18n="backHome">&larr; Back</a>
+            
+            <ul id="subproject-list">
+                <li><button class="sub-btn active" data-sub="A">A</button></li>
+                <li><button class="sub-btn" data-sub="B">B</button></li>
+                <li><button class="sub-btn" data-sub="C">C</button></li>
+                <li><button class="sub-btn" data-sub="D">D</button></li>
+                <li><button class="sub-btn" data-sub="E">E</button></li>
+                <li><button class="sub-btn" data-sub="F">F</button></li>
+                <li><button class="sub-btn" data-sub="G">G</button></li>
+            </ul>
+        </nav>
+
+        <main class="gallery-area">
+            <div id="gallery-grid"></div>
+            
+            <div id="loading-trigger"></div>
+        </main>
+    </div>
+
+    <div id="lightbox" class="hidden">
+        <button id="close-lightbox">&times;</button>
+        <img id="lightbox-img" src="" alt="Preview">
+    </div>
+
+    <script src="project.js" defer></script>
+</body>
+</html>

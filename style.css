@@ -1,0 +1,229 @@
+/* ==========================================================================
+   Base & Reset
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    color: #111111;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================================================================
+   Top Row (15vh)
+   ========================================================================== */
+.top-row {
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5vw;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#me-btn {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+#me-btn:hover {
+    opacity: 0.5;
+}
+
+/* Segmented Control for Language Switcher */
+.lang-switcher {
+    display: flex;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.lang-switcher input[type="radio"] {
+    display: none;
+}
+
+.lang-switcher label {
+    padding: 6px 16px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    color: #888;
+}
+
+.lang-switcher input[type="radio"]:checked + label {
+    background-color: #ffffff;
+    color: #111111;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* ==========================================================================
+   Me Sidebar & Overlay
+   ========================================================================== */
+#me-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+}
+
+#me-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+#me-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 33vw;
+    min-width: 300px;
+    max-width: 450px;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 100;
+    box-shadow: 2px 0 15px rgba(0,0,0,0.05);
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    padding: 40px;
+    overflow-y: auto;
+}
+
+#me-sidebar.active {
+    transform: translateX(0);
+}
+
+#close-sidebar {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #111;
+}
+
+.sidebar-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.profile-img-col img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.personal-info-col ul {
+    list-style: none;
+}
+
+.personal-info-col li {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #f9f9f9;
+    padding-bottom: 6px;
+}
+
+.personal-info-col .label {
+    color: #888;
+}
+
+/* ==========================================================================
+   Bottom Row (85vh) & Categories
+   ========================================================================== */
+.bottom-row {
+    height: 85vh;
+    display: flex;
+    width: 100vw;
+}
+
+.category-col {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #ffffff;
+    background-color: #fafafa;
+    overflow: hidden;
+    transition: background-color 0.3s;
+}
+
+.category-col:last-child {
+    border-right: none;
+}
+
+.category-col h2 {
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    z-index: 2;
+    background: #ffffff;
+}
+
+.category-col img {
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.category-col:hover img {
+    transform: scale(1.03);
+}
+
+/* ==========================================================================
+   Responsive Logic
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .bottom-row {
+        flex-wrap: wrap;
+        height: auto;
+    }
+    .category-col {
+        flex: 0 0 50%;
+        height: 50vh;
+        border-bottom: 1px solid #fff;
+    }
+}
+
+@media (max-width: 600px) {
+    .category-col {
+        flex: 0 0 100%;
+    }
+    #me-sidebar {
+        width: 80vw;
+    }
+}

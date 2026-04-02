@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. EDIT HERE: Translatable text for project page
+   Translatable text for project page
    ========================================================================== */
 const i18nData = {
     en: { backHome: "← Back" },
@@ -8,22 +8,75 @@ const i18nData = {
 };
 
 /* ==========================================================================
-   2. EDIT HERE: Image Data Architecture
-   Replace these placeholder strings with your actual image paths.
-   To add more images, just add more strings separated by commas.
+   subProject button labels
+   ========================================================================== */
+
+const subProjectLabels = {
+    portrait: [
+        { key: 'A', label: 'Spring' },
+        { key: 'B', label: 'Under the Lights' },
+        { key: 'C', label: 'Autumn' },
+        { key: 'D', label: 'Bluehour' },
+        { key: 'E', label: 'Cowgirl' },
+    ],
+    landscape: [
+        { key: 'A', label: 'Mountains' },
+        { key: 'B', label: 'Sea' }
+    ],
+    street: [
+        { key: 'A', label: 'Night' },
+        { key: 'B', label: 'People' },
+        { key: 'C', label: 'City' }
+    ],
+    moment: [
+        { key: 'A', label: 'Wedding' },
+        { key: 'B', label: 'Family' }
+    ]
+};
+
+function renderSubProjectList() {
+    const list = document.getElementById('subproject-list');
+    list.innerHTML = '';
+
+    const items = subProjectLabels[currentCategory] || [];
+
+    items.forEach((item, index) => {
+        const li = document.createElement('li');
+        const button = document.createElement('button');
+
+        button.className = 'sub-btn';
+        if (index === 0) button.classList.add('active');
+
+        button.setAttribute('data-sub', item.key);
+        button.textContent = item.label;
+
+        button.addEventListener('click', () => {
+            document.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active'));
+            button.classList.add('active');
+            initGallery(item.key);
+        });
+
+        li.appendChild(button);
+        list.appendChild(li);
+    });
+}
+
+
+/* ==========================================================================
+   Image Data Architecture
    ========================================================================== */
 const generatePlaceholders = (folder, count) => {
-    // Utility function to generate placeholder paths for demonstration
-    // E.g., folder: 'portrait/a', count: 12 -> images/projects/portrait/a/1.jpg ...
     return Array.from({ length: count }, (_, i) => `images/projects/${folder}/${i + 1}.jpg`);
 };
 
 const projectData = {
     portrait: {
-        A: generatePlaceholders('portrait/a', 15), // Edit these arrays directly! Example: ["images/myphoto1.jpg", "images/myphoto2.jpg"]
-        B: generatePlaceholders('portrait/b', 8),
-        C: generatePlaceholders('portrait/c', 22),
-        D: [], E: [], F: [], G: []
+        A: generatePlaceholders('portrait/Spring', 9), 
+        B: generatePlaceholders('portrait/Under-the-Light', 10),
+        C: generatePlaceholders('portrait/Autumn', 6),
+        D: generatePlaceholders('portrait/Bluehour', 5),
+        E: generatePlaceholders('portrait/Cowgirl', 5), 
+        F: [], G: []
     },
     landscape: {
         A: generatePlaceholders('landscape/a', 12),
@@ -54,6 +107,41 @@ if(backBtn && i18nData[currentLang].backHome) {
 }
 
 /* ==========================================================================
+   backgroundimg-map
+   ========================================================================== */
+
+const bgData = {
+    portrait: {
+        A: 'images/projects/backgrounds/portrait/Spring.jpg',
+        B: 'images/projects/backgrounds/portrait/Under-the-Light.jpg',
+        C: 'images/projects/backgrounds/portrait/Autumn.jpg',
+        D: 'images/projects/backgrounds/portrait/Bluehour.jpg',
+        E: 'images/projects/backgrounds/portrait/Cowgirl.jpg',
+    },
+    landscape: {
+        A: 'images/backgrounds/landscape-a.jpg'
+    },
+    street: {
+        A: 'images/backgrounds/street-a.jpg'
+    },
+    moment: {
+        A: 'images/backgrounds/moment-a.jpg'
+    }
+};
+/* ==========================================================================
+   bgim-change
+   ========================================================================== */
+function updateBackground(subProject) {
+    const projectLayout = document.querySelector('.project-layout');
+    const bg = bgData[currentCategory]?.[subProject];
+
+    if (bg) {
+        projectLayout.style.setProperty('--page-bg', `url("${bg}")`);
+    } else {
+        projectLayout.style.setProperty('--page-bg', 'none');
+    }
+}
+/* ==========================================================================
    Progressive Loading Logic
    ========================================================================== */
 const galleryGrid = document.getElementById('gallery-grid');
@@ -73,6 +161,8 @@ function initGallery(subProject) {
     } else {
         currentImageList = [];
     }
+    // change background img
+    updateBackground(subProject);
 
     // Scroll to top
     document.querySelector('.gallery-area').scrollTo({ top: 0, behavior: 'smooth' });
@@ -107,25 +197,15 @@ const observer = new IntersectionObserver((entries) => {
 
 observer.observe(loadingTrigger);
 
+
 /* ==========================================================================
    Sidebar Sub-project Interaction
    ========================================================================== */
-const subBtns = document.querySelectorAll('.sub-btn');
-
-subBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        // Remove active class from all
-        subBtns.forEach(b => b.classList.remove('active'));
-        // Add active class to clicked
-        e.target.classList.add('active');
-        
-        const selectedSub = e.target.getAttribute('data-sub');
-        initGallery(selectedSub);
-    });
-});
+renderSubProjectList();
 
 // Load initial sub-project
 initGallery('A');
+
 
 /* ==========================================================================
    Lightbox Logic

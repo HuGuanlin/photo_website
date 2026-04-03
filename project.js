@@ -1,23 +1,43 @@
 /* ==========================================================================
    Translatable text for project page
    ========================================================================== */
-const i18nData = {
-    en: { backHome: "← Back" },
-    de: { backHome: "← Zurück" },
-    zh: { backHome: "← 返回" }
-};
-
+   const Projectstranslation = {
+    en: {
+        backHome: "← Back",
+        Spring: "Spring",
+        UndertheLights: "Under the Lights",
+        Autumn: "Autumn",
+        Bluehour: "Bluehour",
+        Cowgirl: "Cowgirl",
+    },
+    de: {
+        backHome: "← Zurück",
+        Spring: "Frühling",
+        UndertheLights: "Unter den Scheinwerfern",
+        Autumn: "Herbst",
+        Bluehour: "Blaue Stunde",
+        Cowgirl: "Cowgirl",
+    },
+    zh: {
+        backHome: "← 返回",
+        Spring: "春",
+        UndertheLights: "聚光灯",
+        Autumn: "秋",
+        Bluehour: "傍晚",
+        Cowgirl: "乡村",
+    }
+}
 /* ==========================================================================
    subProject button labels
    ========================================================================== */
 
 const subProjectLabels = {
     portrait: [
-        { key: 'A', label: 'Spring' },
-        { key: 'B', label: 'Under the Lights' },
-        { key: 'C', label: 'Autumn' },
-        { key: 'D', label: 'Bluehour' },
-        { key: 'E', label: 'Cowgirl' },
+        { key: 'A', labelKey: 'Spring' },
+        { key: 'B', labelKey: 'UndertheLights' },
+        { key: 'C', labelKey: 'Autumn' },
+        { key: 'D', labelKey: 'Bluehour' },
+        { key: 'E', labelKey: 'Cowgirl' },
     ],
     landscape: [
     ],
@@ -38,10 +58,10 @@ function renderSubProjectList() {
         const button = document.createElement('button');
 
         button.className = 'sub-btn';
-        if (index === 0) button.classList.add('active');
+        if (item.key === currentSubProject) button.classList.add('active');
 
         button.setAttribute('data-sub', item.key);
-        button.textContent = item.label;
+        button.textContent = t(item.labelKey);
 
         button.addEventListener('click', () => {
             document.querySelectorAll('.sub-btn').forEach(b => b.classList.remove('active'));
@@ -87,15 +107,35 @@ const projectData = {
    ========================================================================== */
 const urlParams = new URLSearchParams(window.location.search);
 const currentCategory = urlParams.get('category') || 'portrait'; // default fallback
-let currentSubProject = 'A';
+let currentSubProject = urlParams.get('sub') || 'A';
 
-// Apply translation to "Back" button
-const currentLang = localStorage.getItem('portfolioLang') || 'en';
-const backBtn = document.querySelector('.back-btn');
-if(backBtn && i18nData[currentLang].backHome) {
-    backBtn.textContent = i18nData[currentLang].backHome;
+const availableSubProjects = subProjectLabels[currentCategory] || [];
+if (!availableSubProjects.some(item => item.key === currentSubProject)) {
+    currentSubProject = availableSubProjects[0]?.key || 'A';
 }
 
+// Apply translation to page
+let currentLang = localStorage.getItem('portfolioLang') || 'en';
+function t(key) {
+    return Projectstranslation[currentLang]?.[key] || key;
+}
+
+function updateStaticTexts() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        el.textContent = t(key);
+    });
+}
+
+function applyLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('portfolioLang', lang);
+
+    updateStaticTexts();      // 更新 back
+    renderSubProjectList();   // 更新 subprojects
+}
+
+applyLanguage(currentLang);
 /* ==========================================================================
    backgroundimg-map
    ========================================================================== */
@@ -136,12 +176,18 @@ function updateBackground(subProject) {
    ========================================================================== */
 const galleryGrid = document.getElementById('gallery-grid');
 const loadingTrigger = document.getElementById('loading-trigger');
-const BATCH_SIZE = 9;
+const BATCH_SIZE = 25;
 let currentlyLoadedCount = 0;
 let currentImageList = [];
 
 function initGallery(subProject) {
     currentSubProject = subProject;
+
+    const params = new URLSearchParams(window.location.search);
+    params.set('category', currentCategory);
+    params.set('sub', subProject);
+    history.replaceState(null, '', `${window.location.pathname}?${params.toString()}`);
+
     currentlyLoadedCount = 0;
     galleryGrid.innerHTML = ''; // Clear gallery
     
@@ -194,7 +240,7 @@ observer.observe(loadingTrigger);
 renderSubProjectList();
 
 // Load initial sub-project
-initGallery('A');
+initGallery(currentSubProject);
 
 
 /* ==========================================================================

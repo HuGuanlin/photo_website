@@ -20,17 +20,10 @@ const subProjectLabels = {
         { key: 'E', label: 'Cowgirl' },
     ],
     landscape: [
-        { key: 'A', label: 'Mountains' },
-        { key: 'B', label: 'Sea' }
     ],
     street: [
-        { key: 'A', label: 'Night' },
-        { key: 'B', label: 'People' },
-        { key: 'C', label: 'City' }
     ],
     moment: [
-        { key: 'A', label: 'Wedding' },
-        { key: 'B', label: 'Family' }
     ]
 };
 
@@ -79,16 +72,13 @@ const projectData = {
         F: [], G: []
     },
     landscape: {
-        A: generatePlaceholders('landscape/a', 12),
-        B: [], C: [], D: [], E: [], F: [], G: []
+        A: generatePlaceholders('landscape', 17),
     },
     street: {
-        A: generatePlaceholders('street/a', 18),
-        B: [], C: [], D: [], E: [], F: [], G: []
+        A: generatePlaceholders('street', 18),
     },
     moment: {
-        A: generatePlaceholders('moment/a', 10),
-        B: [], C: [], D: [], E: [], F: [], G: []
+        A: generatePlaceholders('moment', 23),
     }
 };
 
@@ -119,13 +109,13 @@ const bgData = {
         E: 'images/projects/backgrounds/portrait/Cowgirl.jpg',
     },
     landscape: {
-        A: 'images/backgrounds/landscape-a.jpg'
+        A: 'images/projects/backgrounds/landscape/road.jpg'
     },
     street: {
-        A: 'images/backgrounds/street-a.jpg'
+        A: 'images/projects/backgrounds/street/lane.jpg'
     },
     moment: {
-        A: 'images/backgrounds/moment-a.jpg'
+        A: 'images/projects/backgrounds/moment/blue.jpg'
     }
 };
 /* ==========================================================================

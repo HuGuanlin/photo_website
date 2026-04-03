@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Photography project gallery by Hu.">
     <title>Project Gallery</title>
     <link rel="stylesheet" href="project.css">
 </head>
@@ -15,19 +16,17 @@
         </nav>
 
         <main class="gallery-area">
-            <div id="gallery-grid">
-                
-            </div>
-            
+            <div id="gallery-grid"></div>
             <div id="loading-trigger"></div>
         </main>
     </div>
 
     <div id="lightbox" class="hidden">
-        <button id="close-lightbox">&times;</button>
-        <img id="lightbox-img" src="" alt="Preview">
+        <button id="close-lightbox" data-i18n-attr="aria-label:closePreview;title:closePreview">&times;</button>
+        <img id="lightbox-img" src="" alt="Preview image" data-i18n-attr="alt:previewAlt">
     </div>
 
+    <script src="translation.js"></script>
     <script src="project.js" defer></script>
 </body>
 </html>

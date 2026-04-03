@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Photography portfolio by Hu.">
     <title>Photography Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,7 +15,7 @@
             </div>
             <div class="lang-section">
                 <div class="lang-switcher">
-                    <input type="radio" id="lang-en" name="language" value="en" checked>
+                    <input type="radio" id="lang-en" name="language" value="en">
                     <label for="lang-en">EN</label> 
 
                     <input type="radio" id="lang-de" name="language" value="de">
@@ -28,10 +29,10 @@
 
         <div id="About-overlay" class="hidden"></div>
         <aside id="About-sidebar" class="hidden">
-            <button id="close-sidebar">&times;</button>
+            <button id="close-sidebar" data-i18n-attr="aria-label:closeAbout;title:closeAbout">&times;</button>
             <div class="sidebar-content">
                 <div class="profile-img-col">
-                    <img src="images/profile.jpg" alt="Profile Picture" id="profile-img">
+                    <img src="images/profile.jpg" alt="Profile picture" id="profile-img" data-i18n-attr="alt:profileAlt">
                 </div>
                 <div class="personal-info-col">
                     <ul>
@@ -39,7 +40,7 @@
                         <li><span class="label" data-i18n="natLabel">Nationality:</span> <span class="value" data-i18n="natValue">Chinese</span></li>
                         <li><span class="label" data-i18n="locLabel">Location:</span> <span class="value" data-i18n="locValue">Nürnberg, Germany</span></li>
                         <li><span class="label" data-i18n="emailLabel">Email:</span> <span class="value">huguanlin2024@gmail.com</span></li>
-                        <li><span class="label">Instagram:</span> <span class="value">@huguanlin_photographer</span></li>
+                        <li><span class="label" data-i18n="instagramLabel">Instagram:</span> <span class="value">@huguanlin_photographer</span></li>
                         <li><span class="label" data-i18n="rednoteLabel">Rednote:</span> <span class="value">5058400982d</span></li>
                     </ul>
                 </div>
@@ -49,26 +50,27 @@
         <main class="bottom-row">
             <a href="project.html?category=portrait" class="category-col">
                 <h2 data-i18n="catPortrait">Portrait</h2>
-                <img src="images/home/portrait.jpg" alt="Portrait Photography">
+            <img class="category-image" src="images/home/portrait.jpg" alt="Portrait photography" data-i18n-attr="alt:portraitAlt">
             </a>
 
             <a href="project.html?category=landscape" class="category-col">
                 <h2 data-i18n="catLandscape">Landscape</h2>
-                <img src="images/home/landscape.jpg" alt="Landscape Photography">
+                <img class="category-image" src="images/home/landscape.jpg" alt="Landscape photography" data-i18n-attr="alt:landscapeAlt">
             </a>
 
             <a href="project.html?category=street" class="category-col">
                 <h2 data-i18n="catStreet">Street</h2>
-                <img src="images/home/street.jpg" alt="Street Photography">
+                <img class="category-image category-image--street" src="images/home/street.jpg" alt="Street photography" data-i18n-attr="alt:streetAlt">
             </a>
 
             <a href="project.html?category=moment" class="category-col">
                 <h2 data-i18n="catMoment">Moment</h2>
-                <img src="images/home/moment.jpg" alt="Moment Photography">
+                <img class="category-image category-image--moment" src="images/home/moment.jpg" alt="Moment photography" data-i18n-attr="alt:momentAlt">
             </a>
         </main>
     </div>
 
+    <script src="translation.js"></script>
     <script src="script.js" defer></script>
 </body>
 </html>

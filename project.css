@@ -224,7 +224,7 @@ a {
         width: 100%;
         overflow-y: auto;
         overflow-x: hidden;
-        padding: 500px 50px 100px 50px;
+        padding: 350px 50px 100px 50px;
         border: none;
         background: transparent;
 
@@ -243,13 +243,23 @@ a {
         margin-bottom: 16px;
     }
     }
+    #close-lightbox {
+        position: absolute;
+        top: 25px;
+        right: 25px;
+        background: none;
+        border: none;
+        font-size: 3rem;
+        cursor: pointer;
+        color: #ffffff;
+}
 @media (max-width: 600px) {
     .project-sidebar {
         padding: 14px 16px;
     }
 
     .gallery-area {
-        padding: 500px 50px 100px 50px;
+        padding: 350px 50px 100px 50px;
     }
 
     #gallery-grid {

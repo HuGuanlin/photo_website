@@ -348,7 +348,7 @@ a {
     /* top row on the right side */
     .top-row {
         position: fixed;
-        top: 40vh;
+        top: 5px;
         right: 0;
         left: auto;
         transform: none;
@@ -423,7 +423,7 @@ a {
     #close-sidebar {
         position: absolute;
         top: 25px;
-        right: 60px;
+        right: 25px;
         background: none;
         border: none;
         font-size: 2rem;

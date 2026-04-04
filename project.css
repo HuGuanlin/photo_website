@@ -96,9 +96,9 @@ a {
     z-index: 1;
     flex: 1;
     overflow-y: auto;
-    padding-top: 800px;
-    padding-left: 200px;
-    padding-right: 425px;
+    padding-top: 700px;
+    padding-left: 300px;
+    padding-right: 500px;
     padding-bottom: 800px;
     left: 150px;
     top: 50px;
@@ -159,7 +159,7 @@ a {
     max-width: 90vw;
     max-height: 90vh;
     object-fit: contain;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
 }
 
 #close-lightbox {

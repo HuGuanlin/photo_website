@@ -47,7 +47,7 @@ a {
     width: 245px;
     height: 350px;
     flex-shrink: 0;
-    border-right:none;
+    border: none;
     display: flex;
     position: absolute;
     top: 0;
@@ -103,6 +103,7 @@ a {
     left: 150px;
     top: 50px;
     background: transparent;
+    border: none;
 
 
 }

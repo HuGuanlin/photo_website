@@ -6,11 +6,12 @@ const generatePlaceholders = (folder, count) => {
 
 const subProjectLabels = {
     portrait: [
+        { key: 'F', labelKey: 'EarlySpring' },
         { key: 'A', labelKey: 'Spring' },
         { key: 'B', labelKey: 'UndertheLights' },
         { key: 'C', labelKey: 'Autumn' },
         { key: 'D', labelKey: 'Bluehour' },
-    { key: 'E', labelKey: 'Cowgirl' }
+        { key: 'E', labelKey: 'Cowgirl' }
     ],
   landscape: [],
   street: [],
@@ -31,8 +32,9 @@ const projectData = {
         C: generatePlaceholders('portrait/Autumn', 6),
         D: generatePlaceholders('portrait/Bluehour', 5),
         E: generatePlaceholders('portrait/Cowgirl', 5), 
-    F: [],
-    G: []
+        F: generatePlaceholders('portrait/EarlySpring', 13), 
+    G: [],
+    H: [],
     },
     landscape: {
     A: generatePlaceholders('landscape', 17)
@@ -51,7 +53,8 @@ const bgData = {
         B: 'images/projects/backgrounds/portrait/Under-the-Light.jpg',
         C: 'images/projects/backgrounds/portrait/Autumn.jpg',
         D: 'images/projects/backgrounds/portrait/Bluehour.jpg',
-    E: 'images/projects/backgrounds/portrait/Cowgirl.jpg'
+        E: 'images/projects/backgrounds/portrait/Cowgirl.jpg',
+        F: 'images/projects/backgrounds/portrait/EarlySpring.jpg',
     },
     landscape: {
         A: 'images/projects/backgrounds/landscape/road.jpg'
@@ -66,7 +69,7 @@ const bgData = {
 
 const urlParams = new URLSearchParams(window.location.search);
 const currentCategory = urlParams.get('category') || 'portrait';
-let currentSubProject = urlParams.get('sub') || 'A';
+let currentSubProject = urlParams.get('sub') || 'F';
 
 const availableSubProjects = subProjectLabels[currentCategory] || [];
 if (availableSubProjects.length > 0 && !availableSubProjects.some((item) => item.key === currentSubProject)) {
@@ -78,7 +81,7 @@ const loadingTrigger = document.getElementById('loading-trigger');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const closeLightboxBtn = document.getElementById('close-lightbox');
-const BATCH_SIZE = 25;
+const BATCH_SIZE = 15;
 let currentlyLoadedCount = 0;
 let currentImageList = [];
 let currentLang = i18n.getLang();

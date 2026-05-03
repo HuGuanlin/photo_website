@@ -37,13 +37,13 @@ const projectData = {
     H: [],
     },
     landscape: {
-    A: generatePlaceholders('landscape', 17)
+        F: generatePlaceholders('landscape', 17)
     },
     street: {
-    A: generatePlaceholders('street', 18)
+        F: generatePlaceholders('street', 18)
     },
     moment: {
-    A: generatePlaceholders('moment', 23)
+        F: generatePlaceholders('moment', 23)
     }
 };
 
@@ -57,13 +57,13 @@ const bgData = {
         F: 'images/projects/backgrounds/portrait/EarlySpring.jpg',
     },
     landscape: {
-        A: 'images/projects/backgrounds/landscape/road.jpg'
+        F: 'images/projects/backgrounds/landscape/road.jpg'
     },
     street: {
-        A: 'images/projects/backgrounds/street/lane.jpg'
+        F: 'images/projects/backgrounds/street/lane.jpg'
     },
     moment: {
-        A: 'images/projects/backgrounds/moment/blue.jpg'
+        F: 'images/projects/backgrounds/moment/blue.jpg'
     }
 };
 
